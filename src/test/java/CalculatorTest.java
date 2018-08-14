@@ -1,4 +1,5 @@
 
+import javafx.scene.control.Alert;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,5 +29,12 @@ public class CalculatorTest {
     public void testMultiplication() {
         float multiplication = calc.multiplication();
         Assert.assertEquals(30, multiplication, 0);
+    }
+
+    @Test
+    public void testDivisionZero(){
+        CalculatorOOP calculator = new CalculatorOOP(4,0);
+        Float devisionZero = calculator.division();
+        Assert.assertEquals(1, devisionZero, 2);
     }
 }

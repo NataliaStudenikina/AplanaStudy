@@ -1,3 +1,5 @@
+import sun.plugin2.message.Message;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,39 +11,42 @@ public class CalculatorOOP {
     public float value1;
     public float value2;
 
+    Scanner sc = new Scanner(System.in);
+
     public CalculatorOOP(float value1, float value2) {
         this.value1 = value1;
         this.value2 = value2;
     }
 
-    private static void printFValueRounded(Float value){
+    private static void printFValueRounded(Float value) {
         System.out.printf("%.4f", value);
     }
 
-    public void calculate (Scanner scanner) {
-        System.out.println("Выберете один из операторов: \"+\" - 1;  \"-\" -2;  \"*\" - 3;  \"/\" - 4" );
+    public void calculate(Scanner scanner) {
+        System.out.println("Выберете один из операторов: \"+\" - 1;  \"-\" -2;  \"*\" - 3;  \"/\" - 4");
         int operator;
         try {
-            operator = scanner.nextInt();{
-            switch (operator) {
-                case 1:
-                    printFValueRounded(addUp());
-                    break;
-                case 2:
-                    printFValueRounded(subtract());
-                    break;
-                case 3:
-                    printFValueRounded(multiplication());
-                    break;
-                case 4:
-                    CalculatorOOP.printFValueRounded(division());
-                    break;
-                default:
-                    System.out.println("Выберете значение из доступных");
-                    calculate(scanner);
+            operator = scanner.nextInt();
+            {
+                switch (operator) {
+                    case 1:
+                        printFValueRounded(addUp());
+                        break;
+                    case 2:
+                        printFValueRounded(subtract());
+                        break;
+                    case 3:
+                        printFValueRounded(multiplication());
+                        break;
+                    case 4:
+                        CalculatorOOP.printFValueRounded(division());
+                        break;
+                    default:
+                        System.out.println("Выберете значение из доступных");
+                        calculate(scanner);
+                }
             }
-         }
-        } catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("Введено неизвестное значение, введите одно из доступных: ");
             scanner.nextLine();
             calculate(scanner);
@@ -61,7 +66,7 @@ public class CalculatorOOP {
         return value;
     }
 
-    public float addUp(){
+    public float addUp() {
         return this.value1 + this.value2;
     } //метод сложения
 
@@ -69,15 +74,15 @@ public class CalculatorOOP {
         return this.value1 - this.value2;
     } //метода вычитания
 
-    public float multiplication (){
+    public float multiplication() {
         return this.value1 * this.value2;
 
     } //метод умножения
 
-    public float division (){
+    public float division() {
         if (value2 == 0){
             System.out.println("Деление на ноль запрещено");
-            return 0;
+            return 1;
         } //метод деления
         return this.value1 / this.value2;
     }

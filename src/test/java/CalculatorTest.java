@@ -1,12 +1,23 @@
-
-import javafx.scene.control.Alert;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 
 public class CalculatorTest {
+
     private float value1 = 6;
     private float value2 = 5;
     public CalculatorOOP calc = new CalculatorOOP(value1,value2);
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+
+    @Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
 
     @Test
     public void testDivision() {
@@ -35,6 +46,6 @@ public class CalculatorTest {
     public void testDivisionZero(){
         CalculatorOOP calculator = new CalculatorOOP(4,0);
         Float devisionZero = calculator.division();
-        Assert.assertEquals(1, devisionZero, 2);
+        Assert.assertEquals("Деление на ноль запрещено!",outContent.toString());
     }
 }

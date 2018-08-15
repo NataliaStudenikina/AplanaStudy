@@ -23,7 +23,6 @@ public class ArrayMax {
             i++;
         }
         System.out.println(MaxArrayItem(newList));
-
     }
 
     /**
@@ -41,6 +40,7 @@ public class ArrayMax {
         return max;
 
     }
+
 
 }
 

@@ -18,30 +18,30 @@ public class CalculatorTest {
         System.setOut(new PrintStream(outContent));
     }
 
-    @Test
+    @Test //Проверка деления
     public void testDivision() {
         float actual = calc.division();
         Assert.assertEquals(1.2, actual, 1);
     }
 
-    @Test
+    @Test //Проверка сложения
     public void testAddUp(){
         float addUp = calc.addUp();
         Assert.assertEquals(11, addUp,0);
     }
 
-    @Test
+    @Test //Проверка вычитания
     public void testSubtract() {
         float subtract = calc.subtract();
         Assert.assertEquals(1,subtract, 0);
     }
-    @Test
+    @Test //Проверка умножения
     public void testMultiplication() {
         float multiplication = calc.multiplication();
         Assert.assertEquals(30, multiplication, 0);
     }
 
-    @Test
+    @Test //Проверка деления на 0
     public void testDivisionZero(){
         CalculatorOOP calculator = new CalculatorOOP(4,0);
         Float devisionZero = calculator.division();

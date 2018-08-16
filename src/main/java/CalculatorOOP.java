@@ -77,7 +77,6 @@ public class CalculatorOOP {
     } //метод умножения
 
     public float division() {
-        Scanner sc = new Scanner(System.in);
         if (value2 == 0){
             System.out.print("Деление на ноль запрещено!");
             return 0;
